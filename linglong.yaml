@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.simplesysexxer
+  name: simplesysexxer
+  version: 0.0.0.1
+  kind: app
+  description: |
+    Simple Sysexxer is a universal tool to exchange MIDI system exclusive data (aka SysEx) with digital musical instruments. Personal copy with minor changes.
+
+command:
+  - /opt/apps/io.github.SimpleSysexxer/files/bin/simplesysexxer
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/Manuel-K/SimpleSysexxer.git
+    version: master
+    commit: 949437a310c74f65d4740205869c2fa191d46e3c
+
+build: |
+  cd /project/linglong/sources/SimpleSysexxer.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
