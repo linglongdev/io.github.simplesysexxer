@@ -1,0 +1,35 @@
+From cea7a4112502a5139cd52ddbe13e74656bfae4b7 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Mon, 16 Sep 2024 16:16:35 +0800
+Subject: [PATCH] install
+
+---
+ SimpleSysexxer.pro | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/SimpleSysexxer.pro b/SimpleSysexxer.pro
+index 4019bc2..797add5 100644
+--- a/SimpleSysexxer.pro
++++ b/SimpleSysexxer.pro
+@@ -26,14 +26,13 @@ TRANSLATIONS += binincludes/translations/de_DE.ts binincludes/translations/en_EN
+ # translation.files = :/binincludes/translations/*.qm
+ 
+ # See http://www.sigvdr.de/mediawiki/index.php?title=Vom_QT4-Programm_zum_Debian_Paket
+-target.path = /usr/local/bin
+-target.files += bin/simplesysexxer
+-desktop.path +=  /usr/share/applications
++target.path = $$PREFIX/bin
++desktop.path +=  $$PREFIX/share/applications
+ desktop.files += bin/simplesysexxer.desktop
+-icon.path +=  /usr/share/pixmaps
++icon.path += $$PREFIX/share/icons/hicolor/apps/
+ icon.files += bin/*.png
+ icon.files += bin/*.xpm
+-# icon.files += bin/*.svg
++# icon.files += bin/*.svgs
+ INSTALLS += target
+ INSTALLS += desktop
+ INSTALLS += icon
+-- 
+2.43.4
+
